@@ -15,6 +15,9 @@ All notable changes to this project will be documented in this file.
 - PNDA-3249: Upgrade Kafka version to 0.11.0.0
 - PNDA-2884: Upgrade CDH and Cloudera Manager version 5.12.1
 
+### Fixed
+- PNDA-3356: Include zip on deb mirror for HDP installation
+
 ## [0.2.0] 2017-08-01
 ### Added
 - PNDA-2452: Add high level overview of creating PNDA
