@@ -4,7 +4,7 @@ export DISTRO=$(cat /etc/*-release|grep ^ID\=|awk -F\= {'print $2'}|sed s/\"//g)
 [[ -z ${MIRROR_BUILD_DIR} ]] && export MIRROR_BUILD_DIR=${PWD}
 [[ -z ${MIRROR_OUTPUT_DIR} ]] && export MIRROR_OUTPUT_DIR=${PWD}/mirror-dist
 
-RPM_PACKAGE_LIST=$(<${MIRROR_BUILD_DIR}/dependencies/pnda-rpm-package-dependencies.txt)
+RPM_PACKAGE_LIST=$(<${MIRROR_BUILD_DIR}/dependencies/pnda-rpm-package-dependencies-${DISTRO}.txt)
 
 RPM_REPO_DIR=$MIRROR_OUTPUT_DIR/mirror_rpm
 RPM_EXTRAS=rhui-REGION-rhel-server-extras
@@ -42,6 +42,10 @@ curl -LOJf $CLOUDERA_MANAGER_REPO_KEY
 curl -LOJf $SALT_REPO_KEY
 curl -LOJf $SALT_REPO_KEY2
 curl -LOJf $AMBARI_REPO_KEY
+
+if [ "x$DISTRO" == "xcentos" ]; then
+	rpm --import *
+fi
 
 yum install -y createrepo
 
