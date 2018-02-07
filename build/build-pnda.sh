@@ -79,6 +79,7 @@ declare -A upstream=(
 [kafkatool]=
 [livy]=
 [gobblin]=
+[flink]=
 )
 
 function fill_bom {
@@ -186,4 +187,5 @@ do
 done
 
 cd ${BASE}
+
 
