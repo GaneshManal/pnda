@@ -69,7 +69,7 @@ do
     fi
 
     mvn clean install -DskipTests -Pvendor-repos -Dhadoop.version="${HADOOP_VERSION}"
-    tar -cvf flink-${FLINK_VERSION}-${HADOOP_DISTRIBUTION}.tar.gz -C ./flink-dist/target/flink-${FLINK_VERSION}-bin/ .
+    tar -cvf flink-${FLINK_VERSION}-${HADOOP_DISTRIBUTION}.tar.gz -C ./flink-dist/target/flink-${FLINK_VERSION}-bin/flink-${FLINK_VERSION} .
     mv ./flink-${FLINK_VERSION}-${HADOOP_DISTRIBUTION}.tar.gz ../pnda-build/
     sha512sum ../pnda-build/flink-${FLINK_VERSION}-${HADOOP_DISTRIBUTION}.tar.gz > ../pnda-build/flink-${FLINK_VERSION}-${HADOOP_DISTRIBUTION}.tar.gz.sha512.txt
 
