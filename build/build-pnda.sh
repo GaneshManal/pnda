@@ -79,6 +79,7 @@ declare -A upstream=(
 [kafkatool]=
 [livy]=
 [gobblin]=
+[flink]=
 )
 
 function fill_bom {
@@ -132,6 +133,13 @@ function prereq_error {
 
 echo -n "git: "
 if [[ $(git --version 2>&1) == *"git version"* ]]; then
+    echo "OK"
+else
+    prereq_error
+fi
+
+echo -n "Apache Maven 3.0.5: "
+if [[ $(mvn -version 2>&1) == *"Apache Maven 3.0.5"* ]]; then
     echo "OK"
 else
     prereq_error
